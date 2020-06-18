@@ -1,0 +1,65 @@
+﻿@model JalopyJournal.Models.AirFilter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Air Filter Details for @ViewBag.CarDescription</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilterType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilterType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Miles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index", new { carID = ViewBag.CarID })
+</p>

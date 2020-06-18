@@ -1,0 +1,28 @@
+﻿@model JalopyJournal.ViewModels.CarIndex
+@{
+    ViewBag.Title = "Car Home";
+}
+<div class="row">
+    <div class="col-md-4">
+        <h2 class="title">@Model.Description</h2>
+
+        @Html.ActionLink("Fuel", "Index", "Fuel", new { carID = Model.ID }, new { @class = "btn btn-default carbtn" })
+        @Html.ActionLink("Fuel Additive", "Index", "FuelAdditive", new { carID = Model.ID }, new { @class = "btn btn-default carbtn" })
+        @Html.ActionLink("Oil Plus Filter", "Index", "OilPlusFilter", new { carID = Model.ID }, new { @class = "btn btn-default carbtn" })
+        @Html.ActionLink("Oil Additive", "Index", "OilAdditive", new { carID = Model.ID }, new { @class = "btn btn-default carbtn" })
+        @Html.ActionLink("Air Filter", "Index", "AirFilter", new { carID = Model.ID }, new { @class = "btn btn-default carbtn" })
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to Cars", "CarSelector")
+</p>
+<style>
+    a.carbtn {
+        padding: 30px;
+        width: 150px;
+        height: 80px;
+        margin: 5px;
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>

@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Jalopy Journal</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- The sidebar -->
+    @if (IsSectionDefined(name: "CarSelectedNavBarSection"))
+    {
+        <div class="sidebar">
+            @Html.ActionLink("Home", "CarSelector", "Car")
+            @Html.ActionLink("Seed", "Seed", "Home")
+            @*Returns a value that indicates whether the specified section is defined in the page.*@
+
+            // In layout pages, renders the content of a named section and specifies whether
+            // the section is required.
+            @RenderSection(name: "CarSelectedNavBarSection")
+            @Html.ActionLink("Cars", "Index", "Car")
+            @Html.ActionLink("Fuel", "Index", "Fuel")
+            @Html.ActionLink("Fuel Additive", "Index", "FuelAdditive")
+            @Html.ActionLink("Oil", "Index", "OilPlusFilter")
+            @Html.ActionLink("Oil Additive", "Index", "OilAdditive")
+            @Html.ActionLink("Air Filter", "Index", "AirFilter")
+
+        </div>
+    }
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Jalopy Journal", "CarSelector", "Car", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <div id="main" class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Jalopy Journal @Html.ActionLink("About", "About", "Home") @Html.ActionLink("Seed", "Seed", "Home")</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    </body>
+</html>
+<style>
+h2.title {
+    margin-left: 5px;
+}
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+    /* Sidebar links */
+    .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+        /* Active/current link */
+        .sidebar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Links on mouse-over */
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+    /*div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+    }*/
+</style>

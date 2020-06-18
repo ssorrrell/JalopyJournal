@@ -1,0 +1,74 @@
+﻿@model IEnumerable<JalopyJournal.Models.OilPlusFilter>
+
+@{
+    ViewBag.Title = "Oil Plus Filter";
+}
+
+<h2>Oil Plus Filter for @ViewBag.CarDescription</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { carID = ViewBag.CarID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Car", "Index", new { carID = ViewBag.CarID, sortOrder = "car_" + ViewBag.SortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Oil Type", "Index", new { carID = ViewBag.CarID, sortOrder = "oiltype_" + ViewBag.SortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Oil Filter", "Index", new { carID = ViewBag.CarID, sortOrder = "oilfilter_" + ViewBag.SortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Miles", "Index", new { carID = ViewBag.CarID, sortOrder = "miles_" + ViewBag.SortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Date", "Index", new { carID = ViewBag.CarID, sortOrder = "date_" + ViewBag.SortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Cost", "Index", new { carID = ViewBag.CarID, sortOrder = "cost_" + ViewBag.SortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Notes", "Index", new { carID = ViewBag.CarID, sortOrder = "notes_" + ViewBag.SortParm })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OilType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OilFilter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "CarHome", "Car", routeValues: new { carID = ViewBag.CarID }, htmlAttributes: null)
+</div>

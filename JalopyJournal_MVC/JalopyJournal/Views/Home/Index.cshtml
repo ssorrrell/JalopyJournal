@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-4">
+        <h2>Select a Car</h2>
+        <p>
+            @if (Model != null)
+            {
+                foreach (var item in Model.Car)
+                {
+                    @item.Description
+                }
+                @Html.DropDownList("CarList", (IEnumerable<SelectListItem>)ViewBag.CarList)
+            }
+            </p>
+        <p>
+            @Html.ActionLink("Enter New Car", "Create", "Car")
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Go</a></p>
+    </div>
+</div>
